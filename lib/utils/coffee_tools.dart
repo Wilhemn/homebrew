@@ -1,3 +1,5 @@
+// import 'package:flutter/material.dart';
+
 class CoffeeTools {
   // Input: number of cups (positive integer)
   // Output: number of ounces in a cup
@@ -7,4 +9,5 @@ class CoffeeTools {
     }
     return cups * 6;
   }
+
 }
