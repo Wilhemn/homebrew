@@ -16,6 +16,7 @@ class _CupsScreen extends State<CupsScreen> {
   final cupsTextController = TextEditingController();
   String numCups;
   bool continueButton = false;
+  bool validInput = false;
 
   @override
 
@@ -42,7 +43,6 @@ class _CupsScreen extends State<CupsScreen> {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
-
           Container(
             alignment: Alignment.center,
             child: Text(
@@ -78,15 +78,18 @@ class _CupsScreen extends State<CupsScreen> {
               ),
               decoration: InputDecoration(
                 border: InputBorder.none,                
-                contentPadding: EdgeInsets.all(15),
+                contentPadding: EdgeInsets.all(12),
               ),
               onChanged: (value) {
                 setState(() {
-                    if(widget.maker.validInput(value) == false){
-                      continueButton = false;
-                    }else{
-                      continueButton = true;
-                    }
+                  numCups = value;
+                  if(widget.maker.validInput(value) == false){
+                    validInput = false;
+                    continueButton = false;
+                  }else{
+                    validInput = true;
+                    continueButton = true;
+                  }
                 });
               },
             ),
@@ -98,11 +101,13 @@ class _CupsScreen extends State<CupsScreen> {
             onPressed: () {       
               cupsTextController.clear();              
               setState(() {
-                if (continueButton) {
-                  Navigator.push(context, MaterialPageRoute(builder: (context) 
-                  => RecommendedScreen(widget.maker, int.parse(numCups))
-                  ));
-                }
+                if (validInput == true) {
+                  cupsTextController.clear();
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => RecommendedScreen(widget.maker, int.parse(numCups))),
+                  );
+                }  
               });
             },
             child: Text(
@@ -118,7 +123,7 @@ class _CupsScreen extends State<CupsScreen> {
                 minimumSize: Size(280, 46),
                 primary: continueButton ? Color(0xFF4C748B) : Color(0xFFE2E2E2), 
                 shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(8),
+                  borderRadius: BorderRadius.circular(20),
                 ),
                 elevation: 0, 
               ),

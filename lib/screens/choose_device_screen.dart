@@ -82,6 +82,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
                   }, 
                 ),
                 Divider(
+                  height: 1,
                   thickness: 2,
                   color: Color(0xFF4C748B),
                 ),
@@ -144,7 +145,7 @@ class _ChooseDeviceScreenState extends State<ChooseDeviceScreen> {
               minimumSize: Size(280, 46),
               primary: continueButton ? Color(0xFF4C748B) : Color(0xFFE2E2E2), 
               shape: RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(8),
+                borderRadius: BorderRadius.circular(20),
               ),
               elevation: 0, 
             ),

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:homebrew/screens/choose_device_screen.dart';
 import 'package:homebrew/models/coffee.dart';
+import 'package:homebrew/screens/splash_screen.dart';
 
 class RecommendedScreen extends StatefulWidget {
 
@@ -148,7 +148,7 @@ class _RecommendedScreenState extends State<RecommendedScreen> {
           ElevatedButton(
             onPressed: () {
                   Navigator.push(context, 
-                    MaterialPageRoute(builder: (context)=>ChooseDeviceScreen()));                      
+                    MaterialPageRoute(builder: (context)=>SplashScreen()));                      
               setState(() {});
             },
             child: Text(

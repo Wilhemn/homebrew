@@ -38,6 +38,7 @@ class _SplashScreenState extends State<SplashScreen> {
               child: FittedBox(
                 fit: BoxFit.fitWidth,
                   child: Text("HOMEBREW",
+                  key: Key('homebrew'),
                   style: TextStyle(
                     fontFamily: 'Norwester',
                     fontSize: 48,
