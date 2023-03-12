@@ -1,22 +1,48 @@
 import 'package:flutter/material.dart';
 import 'package:homebrew/screens/choose_device_screen.dart';
+import 'package:homebrew/models/coffee.dart';
 
 class RecommendedScreen extends StatefulWidget {
+
+  final Homebrew maker;
+  final int numCups; 
+  RecommendedScreen(this.maker, this.numCups);
+
   @override
   _RecommendedScreenState createState() => _RecommendedScreenState();
 }
 
 class _RecommendedScreenState extends State<RecommendedScreen> {
+
   @override
+
   Widget build(BuildContext context) {
+
+    Map<String, int> recommendations = widget.maker.recommended(widget.numCups, widget.maker.device());
+
     return Scaffold(
+
+      appBar: AppBar(
+        leading: IconButton(
+            key: Key('back2'),
+            onPressed: () {
+              setState(() {
+                Navigator.pop(context);
+              });
+            },
+            icon: Icon(Icons.arrow_back_ios)),
+        backgroundColor: Colors.transparent,
+        foregroundColor: Color(0xFF4C748B),
+        elevation: 0,
+      ),
+
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           Center(
             child: Container(
-              width: 337.0,
-              height: 164.0,
+              width: 337,
+              height: 164,
               decoration: ShapeDecoration(
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(10),
@@ -48,7 +74,7 @@ class _RecommendedScreenState extends State<RecommendedScreen> {
                   SizedBox(height: 8),
 
                   Divider(
-                    thickness: 2.0,
+                    thickness: 2,
                     color: Color(0xFF4C748B),
                     indent: 22,
                     endIndent: 22,
@@ -56,12 +82,13 @@ class _RecommendedScreenState extends State<RecommendedScreen> {
 
                   SizedBox(height: 25),
 
+                  
                   Container(
                     height: 15,
                     width: 202,
                     child: FittedBox(
-                      fit: BoxFit.fitWidth,
-                        child: Text("84g - course ground coffee",
+                      fit: BoxFit.none,
+                        child: Text("${recommendations['Coffee']}g - ${widget.maker.coffeeTypes(widget.maker.device())} ground coffee",
                         key: Key('type-coffee'),
                         style: TextStyle(
                           fontFamily: 'Kollektif',
@@ -74,21 +101,20 @@ class _RecommendedScreenState extends State<RecommendedScreen> {
                     )
                   ),
 
-                  SizedBox(height: 2),
+                  SizedBox(height: 4),
 
                   Container(
                     height: 15,
-                    width: 101,
+                    width: 202,
                     child: FittedBox(
-                      fit: BoxFit.fitWidth,
-                        child: Text("1183g - water",
+                      fit: BoxFit.none,
+                        child: Text("${recommendations['Water']}g - water",
                         key: Key('water'),
                         style: TextStyle(
                           fontFamily: 'Kollektif',
                           fontSize: 14,
                           fontWeight: FontWeight.w400,
                           color: Color(0xFF4C748B),
-                          letterSpacing: 0.1,                
                         )
                       )                  
                     )
@@ -109,7 +135,6 @@ class _RecommendedScreenState extends State<RecommendedScreen> {
                           fontStyle: FontStyle.italic,
                           fontWeight: FontWeight.w400,
                           color: Color(0xFF4C748B),
-                          letterSpacing: 0.1,                
                         )
                       )
                     )
@@ -128,19 +153,18 @@ class _RecommendedScreenState extends State<RecommendedScreen> {
             },
             child: Text(
                 "Done",
-                key: Key('Done'),
+                key: Key('done'),
                 style: TextStyle(
-                  fontSize: 14.0,
+                  fontSize: 14,
                   fontWeight: FontWeight.w400,
                   color: Color(0xFFFFFFFF), 
-                  letterSpacing: 0.1,                
                 ),
               ), 
             style: ElevatedButton.styleFrom(
             minimumSize: Size(280, 46),
             primary: Color(0xFF4C748B),
             shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(8.0),
+              borderRadius: BorderRadius.circular(8),
             ),
             elevation: 0, 
           ),

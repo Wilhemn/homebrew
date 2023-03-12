@@ -1,5 +1,3 @@
-// import 'package:flutter/material.dart';
-
 class CoffeeTools {
   // Input: number of cups (positive integer)
   // Output: number of ounces in a cup
@@ -8,6 +6,27 @@ class CoffeeTools {
       throw ArgumentError();
     }
     return cups * 6;
+  }
+
+  static double ouncesToGrams(int ounces){
+    if(ounces <= 0){
+      throw ArgumentError();
+    }
+    return (ounces * 29.57); 
+  }
+
+  static double frenchPressCoffeeAmount(double water) {
+    if (water <= 0) {
+      throw ArgumentError();
+    }
+    return (water / 14); 
+  }  
+
+  static double dripMachineCoffeeAmount(double water) {
+    if (water <= 0) {
+      throw ArgumentError();
+    }
+    return (water / 17); 
   }
 
 }

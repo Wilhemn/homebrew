@@ -43,7 +43,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     fontSize: 48,
                     fontWeight: FontWeight.w400,
                     color: Colors.white,
-                    letterSpacing: 0.1,                
+                    letterSpacing: 4.8,                
                   )
                 )                  
               )
@@ -59,7 +59,7 @@ class _SplashScreenState extends State<SplashScreen> {
                     fontSize: 18,
                     fontWeight: FontWeight.w400,
                     color: Colors.white,
-                    letterSpacing: 0.1,                
+                    letterSpacing: 1.8,                
                   )
                 )                  
               )
