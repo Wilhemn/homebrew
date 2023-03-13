@@ -27,12 +27,12 @@ void main() {
   group("ouncesToGrams", () {
     test('calculates grams on 1 ounce', () {
       var grams = CoffeeTools.ouncesToGrams(1);
-      expect(grams, 29.57);
+      expect(grams, 28.35);
     });
 
     test('calculates grams on positive number of ounces', () {
       var grams = CoffeeTools.ouncesToGrams(4);
-      expect(grams, 118.28);
+      expect(grams, 113.4);
     });
 
     test('throws ArgumentError on zero', () {
@@ -49,13 +49,13 @@ void main() {
     test('calculates amount of coffee on 1 cup of water in grams', () {
       var ounces = CoffeeTools.cupsToOunces(1);
       var grams = CoffeeTools.ouncesToGrams(ounces);
-      expect(grams, 177.42000000000002);
+      expect(grams, 170.10000000000002);
     });
     
     test('calculates water on positive number of cups in grams', () {
       var ounces = CoffeeTools.cupsToOunces(4);
       var grams = CoffeeTools.ouncesToGrams(ounces);
-      expect(grams, 709.6800000000001);
+      expect(grams, 680.4000000000001);
     });
 
     test('throws ArgumentError on zero', () {
@@ -73,13 +73,13 @@ void main() {
       var ounces = CoffeeTools.cupsToOunces(1);
       var grams = CoffeeTools.ouncesToGrams(ounces);
       var frenchPress = CoffeeTools.frenchPressCoffeeAmount(grams);
-      expect(frenchPress, 12.672857142857143);
+      expect(frenchPress, 12.150000000000002);
     });
     test('calculates water on positive number of cups in grams', () {
       var ounces = CoffeeTools.cupsToOunces(4);
       var grams = CoffeeTools.ouncesToGrams(ounces);
       var frenchPress = CoffeeTools.frenchPressCoffeeAmount(grams);
-      expect(frenchPress, 50.691428571428574);
+      expect(frenchPress, 48.60000000000001);
     });
 
     test('throws ArgumentError on zero', () {
@@ -97,13 +97,13 @@ void main() {
       var ounces = CoffeeTools.cupsToOunces(1);
       var grams = CoffeeTools.ouncesToGrams(ounces);
       var frenchPress = CoffeeTools.dripMachineCoffeeAmount(grams);
-      expect(frenchPress, 10.436470588235295);
+      expect(frenchPress, 10.005882352941178);
     });
     test('calculates water on positive number of cups in grams', () {
       var ounces = CoffeeTools.cupsToOunces(4);
       var grams = CoffeeTools.ouncesToGrams(ounces);
       var frenchPress = CoffeeTools.dripMachineCoffeeAmount(grams);
-      expect(frenchPress, 41.74588235294118);
+      expect(frenchPress, 40.02352941176471);
     });
 
     test('throws ArgumentError on zero', () {

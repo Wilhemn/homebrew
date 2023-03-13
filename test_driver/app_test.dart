@@ -1,5 +1,4 @@
 // Imports the Flutter Driver API.
-// import 'package:flutter/material.dart';
 import 'package:flutter_driver/flutter_driver.dart';
 import 'package:test/test.dart';
 
@@ -18,19 +17,6 @@ void main() {
     }
   });
 
-      // final frenchPress = find.byValueKey('french-press');
-      // final continueButton1 = find.byValueKey('continue1');
-      // final input = find.byValueKey('cup-input');
-      // final continueButton2 = find.byValueKey('continue2');
-      // final done = find.byValueKey('done');
-      // final numCups = find.byValueKey('cups');
-      // final coffeeType = find.byValueKey('type-coffee');
-      // final waterAmount = find.byValueKey('water');
-      // final dripMachine = find.byValueKey('drip-machine');
-      // final chooseDevice = find.byValueKey('device');
-      // final back1 = find.byValueKey('back1');
-      // final back2 = find.byValueKey('back2');
-      // final recommended = find.byValueKey('recommended');
   group('Happy Paths', () {
     /*
       Given I am on the Coffee Device Selection Screen
@@ -38,8 +24,8 @@ void main() {
       And I tap "Continue"
       And I enter "5"
       And I tap "Continue"
-      Then I should see "63g - course ground coffee"
-      And I should see "887g - water"
+      Then I should see "61g - course ground coffee"
+      And I should see "851g - water"
     */
     test("should give recommendation for French Press", () async {
       // your code here
@@ -67,11 +53,11 @@ void main() {
 
       final coffeeType = find.byValueKey('type-coffee');
 
-      expect(await driver.getText(coffeeType), "63g - course ground coffee");
+      expect(await driver.getText(coffeeType), "61g - course ground coffee");
 
       final waterAmount = find.byValueKey('water');
 
-      expect(await driver.getText(waterAmount), "887g - water");
+      expect(await driver.getText(waterAmount), "851g - water");
 
       final done = find.byValueKey('done');
 
@@ -85,8 +71,8 @@ void main() {
       And I tap "Continue"
       And I enter "5"
       And I tap "Continue"
-      Then I should see "52g - medium ground coffee"
-      And I should see "887g - water"
+      Then I should see "50g - medium ground coffee"
+      And I should see "851g - water"
     */
     test("should give recommendation for Drip Machine", () async {
       //your code here
@@ -113,9 +99,9 @@ void main() {
 
       await driver.tap(continueButton2);
 
-      await driver.waitFor(find.text("52g - medium ground coffee"));
+      await driver.waitFor(find.text("50g - medium ground coffee"));
 
-      await driver.waitFor(find.text("887g - water"));     
+      await driver.waitFor(find.text("851g - water"));     
 
       final done = find.byValueKey('done');
 
@@ -267,8 +253,6 @@ void main() {
       final numCups = find.byValueKey('cups');
 
       expect(await driver.getText(numCups), "How many cups would you like?");
-      // await driver.waitFor(find.text("How many cups would you like?"));
-
 
     });
 
@@ -398,16 +382,20 @@ void main() {
 
       final coffeeType = find.byValueKey('type-coffee');
 
-      expect(await driver.getText(coffeeType), "63g - course ground coffee");
+      expect(await driver.getText(coffeeType), "61g - course ground coffee");
 
       final waterAmount = find.byValueKey('water');
 
-      expect(await driver.getText(waterAmount), "887g - water");
+      expect(await driver.getText(waterAmount), "851g - water");
 
       final done = find.byValueKey('done');
 
       await driver.tap(done);
-      
+
+      final homebrew = find.byValueKey('homebrew');
+
+      expect(await driver.getText(homebrew), "HOMEBREW");
+
       expect(await driver.getText(chooseDevice), "What coffee maker are you using?");
 
     });

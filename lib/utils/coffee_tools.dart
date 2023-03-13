@@ -12,7 +12,7 @@ class CoffeeTools {
     if(ounces <= 0){
       throw ArgumentError();
     }
-    return (ounces * 29.57); 
+    return (ounces * 28.35); 
   }
 
   static double frenchPressCoffeeAmount(double water) {

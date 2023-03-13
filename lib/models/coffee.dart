@@ -42,7 +42,6 @@ class Homebrew {
     } else {
       return true;
     }
-    // return userInput.isNotEmpty && RegExp(r'^[1-9][0-9]*$|[a-zA-Z]').hasMatch(userInput);
     
   }  
 

@@ -66,7 +66,13 @@ flutter:
   fonts:
         - family: Norwester
           fonts:
-            - asset: fonts/norwester.ttf
+            - asset: fonts/Norwester.ttf
+        - family: Montserrat
+          fonts: 
+            - asset: fonts/Montserrat.ttf
+        - family: Kollektif
+          fonts: 
+            - asset: fonts/Kollektif.ttf
               # weight: 400
         # - asset: fonts/Schyler-Italic.ttf
           # style: italic
